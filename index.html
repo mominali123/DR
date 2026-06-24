@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Chinedum Arize | Sports Injury Doctor & NHS GP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0A1628;
+    --navy-mid: #112240;
+    --teal: #1B4D3E;
+    --teal-light: #2A6B58;
+    --mint: #E8F4F0;
+    --cream: #F5F5F0;
+    --gold: #C8A45A;
+    --gold-light: #DFB96A;
+    --white: #FFFFFF;
+    --text-dark: #0A1628;
+    --text-mid: #3D4F6B;
+    --text-light: #6B7A99;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* ECG SVG divider */
+  .ecg-divider {
+    width: 100%;
+    height: 40px;
+    overflow: hidden;
+    opacity: 0.15;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(10, 22, 40, 0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(200,164,90,0.15);
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+    transition: all 0.3s;
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    color: var(--white);
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .nav-logo span { color: var(--gold); }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-cta {
+    background: var(--gold);
+    color: var(--navy) !important;
+    padding: 0.5rem 1.25rem;
+    border-radius: 4px;
+    font-weight: 700 !important;
+    color: var(--navy);
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy) !important; }
+
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    transition: 0.3s;
+  }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 120px 8% 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 70% 50%, rgba(27,77,62,0.25) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 4.5vw, 4rem);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+  .hero-title em {
+    font-style: normal;
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.65);
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy);
+    padding: 0.875rem 2rem;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    transition: background 0.2s, transform 0.2s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  .btn-outline {
+    border: 1.5px solid rgba(255,255,255,0.35);
+    color: var(--white);
+    padding: 0.875rem 2rem;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    transition: border-color 0.2s, color 0.2s;
+    display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-stats {
+    display: flex;
+    gap: 2rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .hero-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--gold);
+  }
+  .hero-stat-label {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 2px;
+  }
+
+  .hero-image-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-img-frame {
+    position: relative;
+    width: 420px;
+    max-width: 100%;
+  }
+
+  .hero-img-frame::before {
+    content: '';
+    position: absolute;
+    inset: -16px -16px 16px 16px;
+    border: 1.5px solid rgba(200,164,90,0.3);
+    border-radius: 8px;
+    z-index: 0;
+  }
+
+  .hero-img-frame img {
+    width: 100%;
+    border-radius: 8px;
+    display: block;
+    position: relative;
+    z-index: 1;
+    object-fit: cover;
+    height: 520px;
+  }
+
+  .hero-badge {
+    position: absolute;
+    bottom: -20px;
+    left: -20px;
+    background: var(--gold);
+    color: var(--navy);
+    padding: 1rem 1.25rem;
+    border-radius: 6px;
+    z-index: 2;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  }
+  .hero-badge-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .hero-badge-sub {
+    font-size: 0.7rem;
+    opacity: 0.75;
+    margin-top: 2px;
+  }
+
+  /* SECTIONS */
+  section { padding: 90px 8%; }
+
+  .section-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .section-eyebrow::after {
+    content: '';
+    flex: 1;
+    max-width: 40px;
+    height: 1px;
+    background: var(--teal);
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.9rem, 3vw, 2.75rem);
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.15;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .section-sub {
+    font-size: 1rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    max-width: 600px;
+  }
+
+  /* ECG line between sections */
+  .ecg-strip {
+    width: 100%;
+    height: 32px;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  .ecg-strip svg { width: 100%; height: 100%; opacity: 0.25; }
+
+  /* ABOUT */
+  #about {
+    background: var(--navy);
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .about-image-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .about-image-grid img {
+    width: 100%;
+    border-radius: 6px;
+    object-fit: cover;
+    display: block;
+  }
+  .about-image-grid img:first-child {
+    grid-column: 1 / -1;
+    height: 220px;
+  }
+  .about-image-grid img:not(:first-child) {
+    height: 160px;
+  }
+
+  .about-text .section-eyebrow { color: var(--gold); }
+  .about-text .section-eyebrow::after { background: var(--gold); }
+  .about-text .section-title { color: var(--white); }
+  .about-text p {
+    color: rgba(255,255,255,0.65);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    font-size: 0.97rem;
+  }
+
+  .about-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+  .about-tag {
+    border: 1px solid rgba(200,164,90,0.35);
+    color: var(--gold);
+    padding: 0.4rem 0.9rem;
+    border-radius: 100px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+
+  /* SERVICES */
+  #services { background: var(--cream); }
+
+  .services-header { margin-bottom: 3.5rem; }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    background: var(--white);
+    border-left: 3px solid var(--teal);
+    padding: 2rem;
+    border-radius: 0 8px 8px 0;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+  }
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(10,22,40,0.1);
+  }
+
+  .service-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .service-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+  }
+
+  .service-desc {
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  .service-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 1.25rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--teal);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: gap 0.2s;
+  }
+  .service-link:hover { gap: 0.7rem; }
+
+  /* WHY CHOOSE */
+  #why {
+    background: var(--mint);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .why-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .why-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  .why-icon-wrap {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    background: var(--teal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+  .why-item-title {
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.25rem;
+    font-size: 0.95rem;
+  }
+  .why-item-desc {
+    font-size: 0.88rem;
+    color: var(--text-mid);
+    line-height: 1.6;
+  }
+
+  .why-image-side img {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+    height: 500px;
+    display: block;
+  }
+
+  /* ACHIEVEMENTS */
+  #achievements {
+    background: var(--teal);
+    text-align: center;
+    padding: 80px 8%;
+  }
+  #achievements .section-eyebrow { color: var(--gold); justify-content: center; }
+  #achievements .section-eyebrow::after { display: none; }
+  #achievements .section-title { color: var(--white); margin: 0 auto 3rem; }
+
+  .achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  .achievement-item {
+    padding: 2rem 1rem;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px;
+    background: rgba(255,255,255,0.06);
+    transition: background 0.2s;
+  }
+  .achievement-item:hover { background: rgba(255,255,255,0.12); }
+
+  .achievement-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .achievement-label {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.7);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+  }
+
+  /* TESTIMONIALS */
+  #testimonials { background: var(--cream); }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .testimonial-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 2px 20px rgba(10,22,40,0.06);
+  }
+
+  .testimonial-quote {
+    font-size: 3rem;
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+    line-height: 0.6;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+  }
+
+  .testimonial-text {
+    font-size: 0.93rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .testimonial-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--teal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 0.85rem;
+  }
+  .testimonial-name {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--navy);
+  }
+  .testimonial-role {
+    font-size: 0.78rem;
+    color: var(--text-light);
+  }
+  .stars {
+    color: var(--gold);
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+  }
+
+  /* MEDIA & EVENTS */
+  #media { background: var(--navy); }
+  #media .section-eyebrow { color: var(--gold); }
+  #media .section-eyebrow::after { background: var(--gold); }
+  #media .section-title { color: var(--white); }
+
+  .media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+    margin-top: 3rem;
+  }
+
+  .media-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 1.75rem;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .media-card:hover {
+    background: rgba(255,255,255,0.09);
+    border-color: rgba(200,164,90,0.35);
+  }
+
+  .media-tag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+
+  .media-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+    line-height: 1.35;
+  }
+
+  .media-desc {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.6;
+  }
+
+  /* GALLERY */
+  #gallery { background: var(--cream); }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 3rem;
+  }
+
+  .gallery-item {
+    overflow: hidden;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .gallery-item img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    height: 220px;
+    transition: transform 0.4s;
+  }
+  .gallery-item:hover img { transform: scale(1.04); }
+
+  .gallery-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(10,22,40,0.4), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .gallery-item:hover::after { opacity: 1; }
+
+  .gallery-item:nth-child(1) { grid-column: span 2; }
+  .gallery-item:nth-child(1) img { height: 320px; }
+
+  /* CONTACT */
+  #contact {
+    background: var(--navy);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  #contact .section-eyebrow { color: var(--gold); }
+  #contact .section-eyebrow::after { background: var(--gold); }
+  #contact .section-title { color: var(--white); }
+  #contact .section-sub { color: rgba(255,255,255,0.55); }
+
+  .contact-details {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: rgba(255,255,255,0.7);
+    font-size: 0.93rem;
+  }
+  .contact-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: rgba(200,164,90,0.15);
+    border: 1px solid rgba(200,164,90,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 2rem;
+  }
+
+  .social-link {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+  }
+  .social-link:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--navy);
+  }
+
+  /* CONTACT FORM */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 0;
+  }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .form-group label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 6px;
+    padding: 0.8rem 1rem;
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: rgba(255,255,255,0.25);
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--gold);
+  }
+  .form-group select option { background: var(--navy-mid); }
+  .form-group textarea { resize: vertical; min-height: 120px; }
+
+  .form-submit {
+    background: var(--gold);
+    color: var(--navy);
+    border: none;
+    padding: 0.9rem 2rem;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    align-self: flex-start;
+    letter-spacing: 0.03em;
+    margin-top: 0.5rem;
+  }
+  .form-submit:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  .form-message {
+    font-size: 0.85rem;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    display: none;
+  }
+  .form-message.success {
+    background: rgba(27,77,62,0.4);
+    border: 1px solid rgba(27,77,62,0.6);
+    color: #80d4b8;
+    display: block;
+  }
+  .form-message.error {
+    background: rgba(180,40,40,0.25);
+    border: 1px solid rgba(180,40,40,0.4);
+    color: #f4a0a0;
+    display: block;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #060E1A;
+    padding: 3rem 8% 2rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 3rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    margin-bottom: 2rem;
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+  }
+  .footer-logo span { color: var(--gold); }
+
+  .footer-tagline {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.6;
+    max-width: 260px;
+  }
+
+  .footer-col h4 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 1rem;
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .footer-links a {
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    font-size: 0.88rem;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--gold); }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-copy {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.3);
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 0.6rem;
+  }
+  .footer-social a {
+    color: rgba(255,255,255,0.35);
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-social a:hover { color: var(--gold); }
+
+  /* ANIMATIONS */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    #hero { grid-template-columns: 1fr; padding: 100px 6% 60px; text-align: center; }
+    .hero-sub { max-width: 100%; margin-left: auto; margin-right: auto; }
+    .hero-buttons { justify-content: center; }
+    .hero-stats { justify-content: center; }
+    .hero-image-wrap { margin-top: 3rem; }
+    .hero-img-frame { width: 300px; }
+    .hero-img-frame img { height: 380px; }
+    #about { grid-template-columns: 1fr; gap: 3rem; }
+    #why { grid-template-columns: 1fr; gap: 3rem; }
+    .why-image-side { order: -1; }
+    .why-image-side img { height: 280px; }
+    #contact { grid-template-columns: 1fr; gap: 3rem; }
+    .achievements-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-item:nth-child(1) { grid-column: span 2; }
+    .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    nav.open .nav-links {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      inset: 68px 0 0;
+      background: var(--navy);
+      padding: 2rem;
+      gap: 1.5rem;
+      z-index: 99;
+    }
+    .form-row { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 540px) {
+    section { padding: 60px 5%; }
+    .achievements-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-grid { grid-template-columns: 1fr; }
+    .gallery-item:nth-child(1) { grid-column: span 1; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav id="mainNav">
+  <div class="nav-logo">Dr. <span>Nedu</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#achievements">Results</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#media">Media</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact" class="nav-cta">Book Now</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-content fade-in">
+    <p class="hero-eyebrow">NHS GP · Sports Injury Doctor · London</p>
+    <h1 class="hero-title">
+      Movement<br>is <em>Medicine.</em>
+    </h1>
+    <p class="hero-sub">
+      I help active people recover from sports injuries, manage pain, and perform at their best — backed by NHS clinical experience and a passion for movement.
+    </p>
+    <div class="hero-buttons">
+      <a href="#contact" class="btn-primary">Book a Consultation</a>
+      <a href="#about" class="btn-outline">Learn More</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">500+</div>
+        <div class="hero-stat-label">Patients Helped</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">8+</div>
+        <div class="hero-stat-label">Years NHS GP</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">5</div>
+        <div class="hero-stat-label">Marathons Run</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-image-wrap fade-in" style="transition-delay:0.2s">
+    <div class="hero-img-frame">
+      <img src="/uploads/1000154692.jpg" alt="Dr. Chinedum Arize – NHS GP and Sports Injury Doctor">
+      <div class="hero-badge">
+        <div class="hero-badge-title">Dr. Chinedum Arize</div>
+        <div class="hero-badge-sub">General Practitioner · Sports Medicine</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ECG STRIP -->
+<div class="ecg-strip">
+  <svg viewBox="0 0 1200 32" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <polyline points="0,16 100,16 130,16 145,2 155,30 165,16 180,16 280,16 310,16 325,2 335,30 345,16 360,16 460,16 490,16 505,2 515,30 525,16 540,16 640,16 670,16 685,2 695,30 705,16 720,16 820,16 850,16 865,2 875,30 885,16 900,16 1000,16 1030,16 1045,2 1055,30 1065,16 1080,16 1200,16"
+      fill="none" stroke="#C8A45A" stroke-width="1.5"/>
+  </svg>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-image-grid fade-in">
+    <img src="/uploads/1000154693.jpg" alt="Dr. Arize at clinic" style="height:240px; object-fit:cover; object-position: top;">
+    <img src="/uploads/1000154694.jpg" alt="Dr. Arize speaking" style="object-position: top;">
+    <img src="/uploads/1000154692.jpg" alt="Dr. Arize profile" style="object-position: top;">
+  </div>
+
+  <div class="about-text fade-in" style="transition-delay:0.15s">
+    <p class="section-eyebrow">About Me</p>
+    <h2 class="section-title">A Doctor Who Knows What it Means to Move</h2>
+    <p>I'm Dr. Chinedum Arize — a General Practitioner working within the NHS in London, with a specialist focus on sports injuries and musculoskeletal health. My philosophy is simple: the human body is built to move, and movement is the most powerful medicine we have.</p>
+    <p>My clinical background spans acute GP care, preventative medicine, and sports injury assessment. I work with patients ranging from weekend warriors to competitive athletes, helping them recover faster and get back to doing what they love.</p>
+    <p>Outside the clinic, I practice what I preach — I've completed multiple marathons and am a consistent runner and fitness advocate. I understand the frustration of injury because I've lived it, and I know the road back.</p>
+    <div class="about-tags">
+      <span class="about-tag">NHS GP London</span>
+      <span class="about-tag">Sports Injury</span>
+      <span class="about-tag">Musculoskeletal Health</span>
+      <span class="about-tag">Marathon Runner</span>
+      <span class="about-tag">Movement Advocate</span>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header fade-in">
+    <p class="section-eyebrow">What I Offer</p>
+    <h2 class="section-title">Specialist Services</h2>
+    <p class="section-sub">From acute injuries to long-term performance, I provide evidence-based care tailored to your body and your goals.</p>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card fade-in">
+      <span class="service-icon">🦴</span>
+      <h3 class="service-title">Sports Injury Assessment</h3>
+      <p class="service-desc">Thorough clinical evaluation of acute and chronic sports injuries. I diagnose the root cause and build a clear, actionable treatment plan.</p>
+      <a href="#contact" class="service-link">Book Assessment →</a>
+    </div>
+    <div class="service-card fade-in" style="transition-delay:0.1s">
+      <span class="service-icon">🔄</span>
+      <h3 class="service-title">Rehabilitation Programs</h3>
+      <p class="service-desc">Personalised recovery roadmaps combining exercise prescription, lifestyle adjustments, and clinical follow-up to get you moving again.</p>
+      <a href="#contact" class="service-link">Start Rehab →</a>
+    </div>
+    <div class="service-card fade-in" style="transition-delay:0.2s">
+      <span class="service-icon">🏃</span>
+      <h3 class="service-title">Running Injury Support</h3>
+      <p class="service-desc">Specialist support for runners — from knee pain and shin splints to IT band syndrome and plantar fasciitis. I've been there myself.</p>
+      <a href="#contact" class="service-link">Get Support →</a>
+    </div>
+    <div class="service-card fade-in" style="transition-delay:0.3s">
+      <span class="service-icon">🏢</span>
+      <h3 class="service-title">Corporate Wellness</h3>
+      <p class="service-desc">Health and wellness workshops for organisations focused on injury prevention, workplace movement, and team wellbeing.</p>
+      <a href="#contact" class="service-link">Enquire →</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE -->
+<section id="why">
+  <div>
+    <p class="section-eyebrow">Why Work With Me</p>
+    <h2 class="section-title">Evidence-Based Care, Athlete-First Mindset</h2>
+    <p class="section-sub" style="margin-bottom:0">My clinical expertise meets lived experience — I'm both a trained GP and an endurance athlete who understands the demands you place on your body.</p>
+    <ul class="why-list">
+      <li class="why-item fade-in">
+        <div class="why-icon-wrap">🏥</div>
+        <div>
+          <p class="why-item-title">NHS GP Experience</p>
+          <p class="why-item-desc">Over 8 years working within the NHS gives me broad clinical knowledge and a rigorous, patient-centred approach to every consultation.</p>
+        </div>
+      </li>
+      <li class="why-item fade-in" style="transition-delay:0.1s">
+        <div class="why-icon-wrap">🔬</div>
+        <div>
+          <p class="why-item-title">Evidence-Based Treatment</p>
+          <p class="why-item-desc">Every recommendation I make is grounded in current clinical evidence, not trends or guesswork. I keep your recovery on a solid scientific foundation.</p>
+        </div>
+      </li>
+      <li class="why-item fade-in" style="transition-delay:0.2s">
+        <div class="why-icon-wrap">🏅</div>
+        <div>
+          <p class="why-item-title">Athlete-Focused Care</p>
+          <p class="why-item-desc">I understand athletic goals and the psychological impact of injury. I won't just tell you to rest — I'll help you stay active safely and return stronger.</p>
+        </div>
+      </li>
+      <li class="why-item fade-in" style="transition-delay:0.3s">
+        <div class="why-icon-wrap">📋</div>
+        <div>
+          <p class="why-item-title">Personalised Recovery Plans</p>
+          <p class="why-item-desc">No two injuries are the same. Every plan I create is built around your body, your lifestyle, and your specific performance goals.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="why-image-side fade-in" style="transition-delay:0.2s">
+    <img src="/uploads/1000154693.jpg" alt="Dr. Arize in clinic">
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <p class="section-eyebrow">By The Numbers</p>
+  <h2 class="section-title" style="text-align:center; color:var(--white)">Impact That Speaks</h2>
+  <div class="achievements-grid">
+    <div class="achievement-item fade-in">
+      <div class="achievement-num">500+</div>
+      <div class="achievement-label">Patients Treated</div>
+    </div>
+    <div class="achievement-item fade-in" style="transition-delay:0.1s">
+      <div class="achievement-num">8+</div>
+      <div class="achievement-label">Years Experience</div>
+    </div>
+    <div class="achievement-item fade-in" style="transition-delay:0.2s">
+      <div class="achievement-num">5</div>
+      <div class="achievement-label">Marathons Completed</div>
+    </div>
+    <div class="achievement-item fade-in" style="transition-delay:0.3s">
+      <div class="achievement-num">30+</div>
+      <div class="achievement-label">Workshops Delivered</div>
+    </div>
+  </div>
+</section>
+
+<!-- ECG STRIP 2 -->
+<div class="ecg-strip" style="background: var(--cream)">
+  <svg viewBox="0 0 1200 32" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <polyline points="0,16 100,16 130,16 145,2 155,30 165,16 180,16 280,16 310,16 325,2 335,30 345,16 360,16 460,16 490,16 505,2 515,30 525,16 540,16 640,16 670,16 685,2 695,30 705,16 720,16 820,16 850,16 865,2 875,30 885,16 900,16 1000,16 1030,16 1045,2 1055,30 1065,16 1080,16 1200,16"
+      fill="none" stroke="#1B4D3E" stroke-width="1.5"/>
+  </svg>
+</div>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <p class="section-eyebrow">Patient Reviews</p>
+  <h2 class="section-title">What Patients Say</h2>
+
+  <div class="testimonials-grid">
+    <div class="testimonial-card fade-in">
+      <div class="testimonial-quote">"</div>
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">Dr. Arize didn't just treat my knee injury — he helped me understand why it happened and how to prevent it. I ran my first half marathon pain-free two months after seeing him. Genuinely life-changing.</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">SM</div>
+        <div>
+          <div class="testimonial-name">Sarah M.</div>
+          <div class="testimonial-role">Amateur Runner, East London</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card fade-in" style="transition-delay:0.1s">
+      <div class="testimonial-quote">"</div>
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">I came in with a shoulder injury that had kept me out of the gym for four months. Dr. Arize's rehab plan was detailed and realistic. Within 6 weeks I was back training. Can't recommend him enough.</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">JO</div>
+        <div>
+          <div class="testimonial-name">James O.</div>
+          <div class="testimonial-role">Fitness Enthusiast, Hackney</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card fade-in" style="transition-delay:0.2s">
+      <div class="testimonial-quote">"</div>
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">As a football player I've had many injuries over the years and seen many doctors. Dr. Arize stands out because he actually listens and gives you a plan, not just painkillers and 'rest.' He gets athletes.</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">TK</div>
+        <div>
+          <div class="testimonial-name">Tobi K.</div>
+          <div class="testimonial-role">Sunday League Footballer, South London</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEDIA & EVENTS -->
+<section id="media">
+  <p class="section-eyebrow">Media & Presence</p>
+  <h2 class="section-title">Beyond the Clinic</h2>
+  <p class="section-sub" style="color:rgba(255,255,255,0.55)">Dr. Arize is an active voice in health, sports, and community wellbeing — both online and in person.</p>
+
+  <div class="media-grid">
+    <div class="media-card fade-in">
+      <div class="media-tag">Speaking</div>
+      <div class="media-title">Hackney Half Marathon 2027</div>
+      <div class="media-desc">Community ambassador and health advisor for the Hackney Half Marathon, supporting local runners with pre-race injury guidance.</div>
+    </div>
+    <div class="media-card fade-in" style="transition-delay:0.1s">
+      <div class="media-tag">Brand Partnership</div>
+      <div class="media-title">CeraVe Brand Event 2026</div>
+      <div class="media-desc">Featured medical professional at the CeraVe Character Awards 2026, representing the intersection of healthcare and wellness.</div>
+    </div>
+    <div class="media-card fade-in" style="transition-delay:0.2s">
+      <div class="media-tag">Content</div>
+      <div class="media-title">Sports Injury Education</div>
+      <div class="media-desc">Regular Instagram video content covering real cases — from night run knee pain to sports injury breakdowns for the everyday athlete.</div>
+    </div>
+    <div class="media-card fade-in" style="transition-delay:0.3s">
+      <div class="media-tag">Community</div>
+      <div class="media-title">Movember Champion</div>
+      <div class="media-desc">Active Movember participant and advocate for men's health awareness, using his platform to encourage early intervention and self-care.</div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <p class="section-eyebrow">Gallery</p>
+  <h2 class="section-title">Clinic, Community & Beyond</h2>
+
+  <div class="gallery-grid">
+    <div class="gallery-item fade-in">
+      <img src="/uploads/1000154692.jpg" alt="Dr. Arize professional portrait">
+    </div>
+    <div class="gallery-item fade-in" style="transition-delay:0.1s">
+      <img src="/uploads/1000154693.jpg" alt="Dr. Arize at event">
+    </div>
+    <div class="gallery-item fade-in" style="transition-delay:0.15s">
+      <img src="/uploads/1000154694.jpg" alt="Dr. Arize gallery">
+    </div>
+    <div class="gallery-item fade-in" style="transition-delay:0.2s">
+      <img src="/uploads/1000154693.jpg" alt="Dr. Arize community" style="object-position: center">
+    </div>
+    <div class="gallery-item fade-in" style="transition-delay:0.25s">
+      <img src="/uploads/1000154694.jpg" alt="Dr. Arize lifestyle" style="object-position: center">
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="fade-in">
+    <p class="section-eyebrow">Get In Touch</p>
+    <h2 class="section-title">Book a Consultation</h2>
+    <p class="section-sub">Ready to take the first step toward recovery? Reach out and I'll get back to you within 24 hours.</p>
+    <div class="contact-details">
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        London, United Kingdom
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📧</div>
+        hello@drnedu.com
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📱</div>
+        Available via Instagram DM: @drnedu_
+      </div>
+    </div>
+    <div class="social-links">
+      <a href="https://www.instagram.com/drnedu_" target="_blank" class="social-link" aria-label="Instagram">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </a>
+      <a href="#" class="social-link" aria-label="LinkedIn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      <a href="#" class="social-link" aria-label="YouTube">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="fade-in" style="transition-delay:0.15s">
+    <form class="contact-form" id="contactForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" name="firstName" placeholder="John" required>
+        </div>
+        <div class="form-group">
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" name="lastName" placeholder="Smith" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="john@example.com" required>
+      </div>
+      <div class="form-group">
+        <label for="service">Service Needed</label>
+        <select id="service" name="service" required>
+          <option value="" disabled selected>Select a service…</option>
+          <option value="sports-injury">Sports Injury Assessment</option>
+          <option value="rehabilitation">Rehabilitation Program</option>
+          <option value="running">Running Injury Support</option>
+          <option value="corporate">Corporate Wellness</option>
+          <option value="general">General Enquiry</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="message">Tell Me About Your Situation</label>
+        <textarea id="message" name="message" placeholder="Describe your injury or what you're hoping to work on…" required></textarea>
+      </div>
+      <div id="formMessage" class="form-message"></div>
+      <button type="submit" class="form-submit">Send Message →</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">Dr. <span>Nedu</span></div>
+      <p class="footer-tagline">NHS GP and Sports Injury Doctor helping active people recover, perform, and live better through movement-based medicine.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul class="footer-links">
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#achievements">Results</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#media">Media</a></li>
+        <li><a href="#contact">Book Now</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul class="footer-links">
+        <li><a href="#services">Sports Injury Assessment</a></li>
+        <li><a href="#services">Rehabilitation</a></li>
+        <li><a href="#services">Running Injury Support</a></li>
+        <li><a href="#services">Corporate Wellness</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 Dr. Chinedum Arize. All rights reserved. · <a href="#" style="color:inherit">Privacy Policy</a></p>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/drnedu_" target="_blank">Instagram</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">YouTube</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Nav hamburger
+  const hamburger = document.getElementById('hamburger');
+  const nav = document.getElementById('mainNav');
+  hamburger.addEventListener('click', () => nav.classList.toggle('open'));
+  document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+
+  // Nav scroll shrink
+  window.addEventListener('scroll', () => {
+    nav.style.height = window.scrollY > 60 ? '58px' : '68px';
+  });
+
+  // Contact form
+  document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('.form-submit');
+    const msg = document.getElementById('formMessage');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    msg.className = 'form-message';
+    msg.style.display = 'none';
+
+    const data = {
+      firstName: this.firstName.value,
+      lastName: this.lastName.value,
+      email: this.email.value,
+      service: this.service.value,
+      message: this.message.value
+    };
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      const result = await res.json();
+      if (res.ok) {
+        msg.textContent = '✓ Message sent! I\'ll be in touch within 24 hours.';
+        msg.className = 'form-message success';
+        this.reset();
+      } else {
+        throw new Error(result.error || 'Something went wrong.');
+      }
+    } catch (err) {
+      msg.textContent = '✗ ' + err.message;
+      msg.className = 'form-message error';
+    }
+    msg.style.display = 'block';
+    btn.textContent = 'Send Message →';
+    btn.disabled = false;
+  });
+</script>
+</body>
+</html>
